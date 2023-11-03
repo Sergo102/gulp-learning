@@ -1,20 +1,22 @@
-const {series} = require('gulp');
+const {series, parallel} = require('gulp');
 
-function publick(cb){
-  console.log('publick');
+const compileTS = function(cb){
+  cb();
+};
+
+const minJS = function(cb){
   cb();
 }
 
-exports.publick = publick;
-
-function privat(cb){
-  console.log('privat');
+const compileScss = function(cb){
   cb();
 }
 
-function privat2(cb){
-  console.log('privat2');
+const minCss = function(cb){
   cb();
 }
 
-exports.default = series(publick, privat, privat2);
+const js = series(compileTs, minJS);
+const css = series(compileScss, minCss);
+
+const prod = parallel(js, css)
