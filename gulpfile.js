@@ -1,22 +1,8 @@
-const {series, parallel} = require('gulp');
+const {src, dest} = require('gulp');
 
-function tsTojs(cb){
-  cb();
+function move(){
+  return src("app/index.js")
+  .pipe(dest('dist/'))
 }
 
-function minJs(cb){
-  cb();
-}
-
-function scssToCss(cb){
-  cb();
-}
-
-function minCss(cb){
-  cb();
-}
-
-exports.default = parallel(
-  series(tsTojs, minJs),
-  series(scssToCss, minCss)
-)
+exports.default = move;
