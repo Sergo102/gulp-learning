@@ -1,22 +1,22 @@
 const {series, parallel} = require('gulp');
 
-const compileTS = function(cb){
-  cb();
-};
-
-const minJS = function(cb){
+function tsTojs(cb){
   cb();
 }
 
-const compileScss = function(cb){
+function minJs(cb){
   cb();
 }
 
-const minCss = function(cb){
+function scssToCss(cb){
   cb();
 }
 
-const js = series(compileTs, minJS);
-const css = series(compileScss, minCss);
+function minCss(cb){
+  cb();
+}
 
-const prod = parallel(js, css)
+exports.default = parallel(
+  series(tsTojs, minJs),
+  series(scssToCss, minCss)
+)
