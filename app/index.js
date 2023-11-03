@@ -1,1 +1,5 @@
-console.log('Hello from OTHER index.js')
+console.log('hello');
+const darkModePreference = null;
+const getUserDarkModePreference = (darkModePreference) => {
+  return darkModePreference ?? true;
+}
