@@ -17,3 +17,9 @@
   9. @babel/core
   10. @babel/register
   <!-- babel -->
+
+  <!--html-->
+  11. gulp-pug
+  12. gulp-w3cjs
+  13. gulp-htmlmin  
+  <!--html-->
