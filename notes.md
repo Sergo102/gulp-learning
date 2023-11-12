@@ -21,5 +21,10 @@
   <!--html-->
   11. gulp-pug
   12. gulp-w3cjs
-  13. gulp-htmlmin  
+  13. gulp-htmlmin
+  14. gulp-w3c-html-validator
   <!--html-->
+
+  <!-- gulp -->
+  15. gulp-plumber
+  <!-- gulp -->
