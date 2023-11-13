@@ -27,3 +27,12 @@ function minify(){
 exports.minify = minify;
 
 const pug = require('gulp-pug');
+
+function pug2html(){
+  return src('app/pug/index.pug')
+  .pipe(plumber())
+  .pipe(pug())
+  .pipe(dest('dist/pug/'));
+}
+
+exports.pug2html = pug2html;
