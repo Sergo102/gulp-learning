@@ -21,7 +21,9 @@ function minify(){
       removeComments: true,
     }
   ))
-  .pipe(dest('dist/'))
+  .pipe(dest('dist/'));
 }
 
 exports.minify = minify;
+
+const pug = require('gulp-pug');
