@@ -29,3 +29,45 @@ function less2css(){
 }
 
 exports.less2css = less2css;
+
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const combineMediaQuery = require('postcss-combine-media-query');
+
+function postcss2css(){
+  const plugins = [
+    autoprefixer(),
+    combineMediaQuery(),
+    cssnano()
+  ];
+  return src('style/postcss/style.css')
+  .pipe(plumber())
+  .pipe(sourcemaps.init())
+  .pipe(postcss(plugins))
+  .pipe(sourcemaps.write())
+  .pipe(dest('dist/postcss/'));
+}
+
+exports.postcss2css = postcss2css;
+
+const concat = require('gulp-concat');
+
+function concatF(){
+  const plugins = [
+    autoprefixer(),
+    combineMediaQuery(),
+    cssnano()
+  ];
+  return src('dist/**/*.css')
+  .pipe(plumber())
+  .pipe(sourcemaps.init())
+
+  .pipe(concat('all.css'))
+  // .pipe(postcss(plugins))
+  
+  .pipe(sourcemaps.write())
+  .pipe(dest('dist/postcss/'));
+}
+
+exports.concatF = concatF;
