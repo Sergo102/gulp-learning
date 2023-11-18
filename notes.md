@@ -11,11 +11,12 @@
   <!-- ts -->
 
   <!-- babel -->
-  6. gulp-babel
-  7. @babel/cli
-  8. @babel/preset-env
-  9. @babel/core
-  10. @babel/register
+    gulp-babel
+    @babel/cli
+    @babel/preset-env
+    @babel/core
+    @babel/register
+    @babel/plugin-transfrom-spread
   <!-- babel -->
 
   <!--html-->
@@ -42,3 +43,10 @@
   23. gulp-concat
   24. gulp-sourcemaps
   <!-- css and scss -->
+
+  <!-- js -->
+  25. gulp-eslint
+  26. gulp-uglify-es
+  27. eslint
+  28. eslint-config-google
+  <!-- js -->
