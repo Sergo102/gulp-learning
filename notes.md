@@ -52,5 +52,7 @@
   <!-- js -->
 
   <!-- images -->
-  
+  29. gulp.spritesmith
+  30. gulp-imagemin
+  31. got
   <!-- images -->
