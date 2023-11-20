@@ -1,47 +1,63 @@
-const {src, dest} = require('gulp');
-const spritesmith = require('gulp.spritesmith');
+const {src, dest, watch, series} = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
-const image = require('gulp-imagemin');
+const sourcemaps = require('gulp-sourcemaps');
+const rename = require('gulp-rename');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
 
-function spriteMaker(){
-  return src('img/*.png')
+const path = {
+  scss: 'app/style/*.scss',
+  js: 'app/scripts/*.js',
+  html: 'app/*.html'
+};
+
+const destPath = {
+  scss: 'dist/css/',
+  js: 'dist/scripts/',
+  html: 'dist/',
+};
+
+function scss2css(){
+  return src(path.scss)
   .pipe(plumber())
-  .pipe(spritesmith(
-    {
-      imgName: 'sprite.png',
-      cssName: 'sprite.scss',
-      algorithm: 'binary-tree',
-      padding: 20
-    }
-  ))
-  .pipe(dest('sprit-img/'))
+  .pipe(sourcemaps.init())
+  .pipe(rename('style.css'))
+  .pipe(sass())
+  .pipe(sourcemaps.write())
+  .pipe(dest(destPath.scss))
+  .pipe(browserSync.stream())
 }
 
-exports.spriteMaker = spriteMaker;
-
-function minImages(){
-  return src('img/*')
-  .pipe(plumber())
-  .pipe(image([
-    image.svgo({
-      plugins: [
-        {
-          removeViewBox: true,
-          removeAtrrs: true,
-        }
-      ]
-    }),
-    image.gifsicle({
-      plugins:[
-        {
-          optimizationLevel:3
-        }
-      ]
-    })
-  ], {
-    verbose: true
+function js(){
+  return src(path.js)
+  .pipe(sourcemaps.init())
+  .pipe(babel({
+    presets: ['@babel/preset-env'],
+    plugins: ['@babel/plugin-transform-spread']
   }))
-  .pipe(dest('img-min/'))
+  .pipe(concat('main.js'))
+  .pipe(sourcemaps.write())
+  .pipe(dest(destPath.js))
+  .pipe(browserSync.stream());
+};
+
+function moveHtml(){
+  return src(path.html)
+  .pipe(dest(destPath.html))
+  .pipe(browserSync.stream());
+};
+
+function watcher(){
+  browserSync.init({
+    server: {
+      baseDir: './dist'
+    }
+  });
+  watch(path.scss, scss2css);
+  watch(path.js, js);
+  watch(path.html, moveHtml);
 }
 
-exports.minImages = minImages;
+exports.default = series(moveHtml, scss2css, js, watcher);
