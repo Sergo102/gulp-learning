@@ -1,4 +1,4 @@
 "use strict";
 
-alert("Hello world");
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwibmFtZXMiOlsiYWxlcnQiXSwic291cmNlcyI6WyJhcHAuanMiXSwic291cmNlc0NvbnRlbnQiOlsiYWxlcnQoXCJIZWxsbyB3b3JsZFwiKSJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsS0FBSyxDQUFDLGFBQWEsQ0FBQyJ9
+alert("Hello world" + "Added text");
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwibmFtZXMiOlsiYWxlcnQiXSwic291cmNlcyI6WyJhcHAuanMiXSwic291cmNlc0NvbnRlbnQiOlsiYWxlcnQoXCJIZWxsbyB3b3JsZFwiICsgXCJBZGRlZCB0ZXh0XCIpIl0sIm1hcHBpbmdzIjoiOztBQUFBQSxLQUFLLENBQUMsYUFBYSxHQUFHLFlBQVksQ0FBQyJ9
