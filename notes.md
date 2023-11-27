@@ -44,7 +44,7 @@
   24. gulp-sourcemaps
   <!-- css and scss -->
 
-  <!-- js -->
+  <!-- js --> 
   25. gulp-eslint
   26. gulp-uglify-es
   27. eslint
