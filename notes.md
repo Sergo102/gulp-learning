@@ -53,6 +53,11 @@
     eslint-config-google
   <!-- js -->
 
+  <!-- del -->
+    del
+  <!-- del -->
+
+
   <!-- images -->
     gulp.spritesmith
     gulp-imagemin
