@@ -1,5 +1,5 @@
-@use 'variables';
-@mixin icons-style{
-  background-image: url($sprite-path)!important;
-  display: inline-block;
+@import 'variables';
+@mixin icons-style {
+    background-image: url($spritePath)!important;
+    display: inline-block;
 }

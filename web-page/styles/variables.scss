@@ -1,18 +1,16 @@
-:root{
-  $body-background: #fff;
-  $decoration-line: #f9f9f9;
-  $client-block-background: #3f9ab7;
+$bodyBackground:#fff;
+$decorationLine:#F9F9F9;
+$clientBlockBackground:#3F9AB7;
 
-  // text colors
-  $main-color: #000;
-  $article-color: #4f4f4f;
-  $secondary-color: #f2994a;
-  $client-color: #fff;
+// ==colors===
+$mainColor:#000;
+$articleColor:#4F4F4F;
+$secondaryColor:#F2994A;
+$clientColor:#fff;
 
-  // path
-  $sprite-path: '../img/sprite/sprite.png';
+// === path ===
+$spritePath:'../img/sprite/sprite.png';
 
-  // fonts
-  $roboto: 'Roboto', sans-serif;
-  $nunito: 'Nunito Sans', sans-serif;
-}
+// === fonts ===
+$roboto:'Roboto', sans-serif;
+$nunito: 'Nunito Sans', sans-serif;
