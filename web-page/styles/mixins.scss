@@ -1,0 +1,5 @@
+@use 'variables';
+@mixin icons-style{
+  background-image: url($sprite-path)!important;
+  display: inline-block;
+}
