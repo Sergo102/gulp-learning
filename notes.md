@@ -44,6 +44,8 @@
     gulp-rename
     gulp-concat
     gulp-sourcemaps
+
+    normalize.css
   <!-- css and scss -->
 
   <!-- js --> 
