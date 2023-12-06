@@ -46,6 +46,15 @@ header{
     position: relative;
     padding: 50px 0;
     z-index: 3;
+    @media screen and (max-width: 1150px) {
+        .wrapper{
+            flex-direction: column;
+            align-items: center;
+            .logo-block, nav{
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 .logo-block{
     font-family: $roboto;
@@ -79,6 +88,38 @@ nav{
             color: $mainColor;
             text-decoration: none;
             padding-bottom: 5px;
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                height: 2px;
+                width: 0;
+                border-radius: 7px;
+                transition: all 1s ease;
+                background-color: $secondaryColor;;
+            }
+            &:hover{
+                &::after{
+                    width: 100%;
+                }
+            }
+            &.active{
+                &::after{
+                    left: 50%;
+                    width: 7px;
+                    height: 7px;
+                    bottom: -3px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 420px) {
+        li{
+            padding: 0 15px 0 0;
+        }
+        a{
+            font-size: 14px;
         }
     }
 }
@@ -101,6 +142,18 @@ nav{
         border: none;
         line-height: 1;
     }
+    @media screen and (max-width: 420px) {
+        width: 100%;
+        a{
+            font-size: 14px;
+        }
+        button{
+            padding: 0 0 0 15px;
+            img{
+                width: 75%;
+            }
+        }
+    }
 }
 main{
     position: relative;
@@ -109,6 +162,11 @@ main{
 }
 article{
     padding-bottom: 50px;
+    @media screen and (max-width: 1150px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
 }
 .image-block{
     max-width: 420px;
@@ -116,6 +174,10 @@ article{
     img{
         width: 100%;
         height: auto;
+        &:hover{
+            transition: all 1s ease;
+            filter: grayscale(100%);
+        }
     }
 }
 .article-block{
@@ -170,6 +232,13 @@ article{
             background-color: $secondaryColor;
         }
     }
+    @media screen and (max-width: 1150px) {
+        .image-block{
+            max-width: 320px;
+        }
+        padding: 50px 30px 0 30px;
+        margin-bottom: 50;
+    }
 }
 .video-block{
     button{
@@ -214,6 +283,20 @@ article{
         height: 34px;
         display: flex;
         border-radius: 20%;
+        transition: all 1s ease;
+        &:hover{
+            background-color: $secondaryColor;
+            border-radius: 100%;
+            .twitter{
+                @include sprite($twitter-hover);
+            }
+            .instagram{
+                @include sprite($instagram-hover)
+            }
+            .facebook{
+                @include sprite($facebook-hover)
+            }
+        }
     }
     a{
         text-decoration: none;
@@ -270,5 +353,18 @@ article{
         font-weight: bold;
         font-size: 24px;
         line-height: 33px;
+        transition: all 1s ease;
+        &:hover{
+            opacity: 0.85;
+        }
+    }
+    @media screen and (max-width: 420px) {
+        flex-direction: column;
+        ul{
+            margin: 0 0 20px 40px;
+        }
+        a{
+            font-size: 18px;
+        }
     }
 }
